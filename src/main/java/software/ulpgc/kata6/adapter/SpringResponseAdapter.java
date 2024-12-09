@@ -1,4 +1,4 @@
-package software.ulpgc.kata6;
+package software.ulpgc.kata6.adapter;
 
 public class SpringResponseAdapter {
     private String body;

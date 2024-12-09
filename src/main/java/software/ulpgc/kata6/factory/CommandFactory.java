@@ -1,6 +1,10 @@
-package software.ulpgc.kata6;
+package software.ulpgc.kata6.factory;
 
 import org.springframework.stereotype.Component;
+import software.ulpgc.kata6.adapter.SpringRequestAdapter;
+import software.ulpgc.kata6.adapter.SpringResponseAdapter;
+import software.ulpgc.kata6.command.Command;
+import software.ulpgc.kata6.command.CustomPasswordCommand;
 
 import java.util.HashMap;
 import java.util.Map;

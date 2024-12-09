@@ -1,8 +1,11 @@
-package software.ulpgc.kata6;
+package software.ulpgc.kata6.command;
+
+import software.ulpgc.kata6.adapter.SpringRequestAdapter;
+import software.ulpgc.kata6.adapter.SpringResponseAdapter;
 
 import java.security.SecureRandom;
 
-public class CustomPasswordCommand implements Command{
+public class CustomPasswordCommand implements Command {
     private final SpringRequestAdapter request;
     private final SpringResponseAdapter response;
 
@@ -14,14 +17,14 @@ public class CustomPasswordCommand implements Command{
     @Override
     public void execute() {
         String password = generatePassword();
-        response.setBody(String.format("{\"password\":\"%s\"", password));
+        response.setBody(String.format("{\"password\":\"%s\"}", password));
     }
 
     private String generatePassword() {
         int length = Integer.parseInt(request.getQueryParam("length").orElse("8"));
 
         String baseCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        String specialCharacters = "!@#$%^&*()-_=+[]{}|;:,.<>?/";
+        String specialCharacters = "!@#$%^&*()-_=+[]{}|;:,.<>?";
 
         boolean includeSpecial = request.getBooleanQueryParam("special", true);
 
